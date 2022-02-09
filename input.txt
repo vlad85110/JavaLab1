@@ -1,2 +1,2 @@
-32d32d
-adfgdf
+The CSV file must be sorted in descending order of frequency, i.e. the most frequent words
+must go at the beginning. Delimiters include all characters except letters and numbers.
