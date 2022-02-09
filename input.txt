@@ -1,2 +1,13 @@
-The CSV file must be sorted in descending order of frequency, i.e. the most frequent words
-must go at the beginning. Delimiters include all characters except letters and numbers.
+When writing programs, a programmer almost always uses
+high-level programming languages. As a result of work
+programmer, the source code of the program is created, which is stored in
+one or more text files. In order for the resulting
+the program could be executed on a computer, it was necessary
+convert from original high-level language representation to
+binary representation containing commands that can be executed
+central processing unit of the computer. This transformation is done with
+using programs called compilers. Receiving one or
+several files with the source code of the program, the compiler creates
+binary representation and saves it to binary executables,
+which can be loaded by the main control program of the computer
+(operating system) and run on the computer.

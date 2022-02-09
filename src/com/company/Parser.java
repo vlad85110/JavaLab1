@@ -1,16 +1,14 @@
 package com.company;
 import java.io.*;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 
-public class Input {
+public class Parser {
     private final HashMap<String, Integer> data;
 
-    public Input(String fileName) throws IOException {
+    public Parser(String fileName) throws IOException {
         File file = new File(fileName);
         FileReader fr = new FileReader(file);
         BufferedReader reader = new BufferedReader(fr);
@@ -21,7 +19,6 @@ public class Input {
         while (line != null) {
             parseStr(line);
             line = reader.readLine();
-
         }
         fr.close();
         reader.close();
@@ -40,5 +37,9 @@ public class Input {
                 data.put(matcher.group(), count + 1);
             }
         }
+    }
+
+    public HashMap<String, Integer> getData() {
+        return data;
     }
 }
