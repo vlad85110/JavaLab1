@@ -1,7 +1,6 @@
 package com.company;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class Main {
 
@@ -11,26 +10,17 @@ public class Main {
         }
 
         Parser input;
+        Statistics statistics = null;
+        input = new Parser(args[0]);
         try {
-            input = new Parser(args[0]);
-        } catch (IOException ex) {
-            System.err.print("Cannot open file \n" + ex);
-            return;
+            statistics =input.parseFile();
+        } catch (IOException ex){
+            System.err.print("Error" + ex);
         }
 
-        HashMap<String, Integer> data;
-        Statistics statistics;
         try {
-            data = input.getData();
-            if (data.isEmpty()) return;
-        } catch (Error e) {
-            System.err.print("Error" + e);
-            return;
-        }
-
-        statistics = new Statistics(data);
-        try {
-            Writer.writeFile(args[1], statistics.getSortedData(), statistics.getSize());
+            assert statistics != null;
+            Writer.writeFile(args[1], statistics);
         }
         catch (IOException ex) {
             System.err.print("Opening file error : " + ex);
