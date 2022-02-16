@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 
 
 public class Writer {
-    static void writeFile (String fileName, Statistics statistics) throws IOException {
+    static void writeFile (String fileName, SorterStat statistics) throws IOException {
         String[] file;
         file = fileName.split("\\.");
         if (!file[1].equals("csv") && !file[1].equals("txt")) {

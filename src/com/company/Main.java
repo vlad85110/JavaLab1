@@ -10,7 +10,7 @@ public class Main {
         }
 
         Parser input;
-        Statistics statistics = null;
+        SorterStat statistics = null;
         input = new Parser(args[0]);
         try {
             statistics =input.parseFile();

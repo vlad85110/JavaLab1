@@ -3,10 +3,10 @@ package com.company;
 import java.util.*;
 
 
-public class Statistics {
+public class SorterStat {
     private final TreeMap<String, Integer> sortedData;
 
-    public Statistics(TreeMap<String, Integer> data) {
+    public SorterStat(TreeMap<String, Integer> data) {
         Comparator<String> comparator = (k1, k2) -> {
             if (k1.equals(k2)) return 0;
             int comp = data.get(k1).compareTo(

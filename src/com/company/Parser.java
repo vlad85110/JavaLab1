@@ -16,7 +16,7 @@ public class Parser {
         this.fileName = fileName;
     }
 
-    public Statistics parseFile() throws  IOException {
+    public SorterStat parseFile() throws  IOException {
         File file = new File(this.fileName);
         FileReader fr = new FileReader(file);
         BufferedReader reader = new BufferedReader(fr);
@@ -31,21 +31,14 @@ public class Parser {
 
         fr.close();
         reader.close();
-        return new Statistics(data);
+        return new SorterStat(data);
     }
 
     private void parseStr (String str, TreeMap<String, Integer> data) {
         Pattern pattern = Pattern.compile("(\\w|[0-9])+");
         Matcher matcher = pattern.matcher(str);
 
-        int count;
-        while (matcher.find()) {
-            if (data.get(matcher.group()) == null) {
-                data.put(matcher.group(), 1);
-            } else {
-                count = data.get(matcher.group());
-                data.put(matcher.group(), count + 1);
-            }
-        }
+        while (matcher.find())
+            data.merge(matcher.group(), 1, Integer::sum);
     }
 }

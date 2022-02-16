@@ -1,13 +1,29 @@
-When writing programs, a programmer almost always uses
-high-level programming languages. As a result of work
-programmer, the source code of the program is created, which is stored in
-one or more text files. In order for the resulting
-the program could be executed on a computer, it was necessary
-convert from original high-level language representation to
-binary representation containing commands that can be executed
-central processing unit of the computer. This transformation is done with
-using programs called compilers. Receiving one or
-several files with the source code of the program, the compiler creates
-binary representation and saves it to binary executables,
-which can be loaded by the main control program of the computer
-(operating system) and run on the computer.
+package com.company;
+
+import java.io.IOException;
+
+public class Main {
+
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.err.print("wrong input");
+        }
+
+        Parser input;
+        Statistics statistics = null;
+        input = new Parser(args[0]);
+        try {
+            statistics =input.parseFile();
+        } catch (IOException ex){
+            System.err.print("Error" + ex);
+        }
+
+        try {
+            assert statistics != null;
+            Writer.writeFile(args[1], statistics);
+        }
+        catch (IOException ex) {
+            System.err.print("Opening file error : " + ex);
+        }
+    }
+}
